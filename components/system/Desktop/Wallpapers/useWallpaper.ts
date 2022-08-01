@@ -31,7 +31,7 @@ const useWallpaper = (
   const { sessionLoaded, setWallpaper, wallpaperImage, wallpaperFit } =
     useSession();
   const [wallpaperName] = wallpaperImage.split(" ");
-  const vantaWireframe = wallpaperImage === "VANTA WIREFRAME";
+  const vantaWireframe = wallpaperImage === "APOD Wireframe";
   const wallpaperWorker = useWorker<void>(
     WALLPAPER_WORKERS[wallpaperName],
     undefined,
@@ -70,7 +70,7 @@ const useWallpaper = (
         wallpaperWorker.current.postMessage(
           {
             canvas: offscreen,
-            config: wallpaperName === "VANTA" ? vantaConfig : undefined,
+            config: wallpaperName === "APOD" ? vantaConfig : undefined,
             devicePixelRatio: 1,
           },
           [offscreen]
@@ -88,7 +88,7 @@ const useWallpaper = (
       } else if (wallpaperName === "COASTAL_LANDSCAPE") {
         coastalLandscape(desktopRef.current);
       } else {
-        setWallpaper("VANTA");
+        setWallpaper("APOD");
       }
 
       if (BRIGHT_WALLPAPERS[wallpaperName]) {
@@ -142,7 +142,7 @@ const useWallpaper = (
 
         if (hdurl || url) {
           wallpaperUrl = ((viewWidth() > 1024 ? hdurl : url) || url) as string;
-          newWallpaperFit = "fit";
+          newWallpaperFit = "fill";
 
           if (isYouTubeUrl(wallpaperUrl)) {
             wallpaperUrl = `https://i.ytimg.com/vi/${getYouTubeUrlId(

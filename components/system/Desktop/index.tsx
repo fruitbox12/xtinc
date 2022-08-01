@@ -1,5 +1,5 @@
 import StyledDesktop from "components/system/Desktop/StyledDesktop";
-import useWallpaper from "components/system/Desktop/Wallpapers/useWallpaper";
+import loadFileWallpaper from "components/system/Desktop/Wallpapers/useWallpaper";
 import FileManager from "components/system/Files/FileManager";
 import { useRef } from "react";
 import { DESKTOP_PATH } from "utils/constants";
@@ -7,7 +7,7 @@ import { DESKTOP_PATH } from "utils/constants";
 const Desktop: FC = ({ children }) => {
   const desktopRef = useRef<HTMLElement | null>(null);
 
-  useWallpaper(desktopRef);
+  loadFileWallpaper(desktopRef);
 
   return (
     <StyledDesktop ref={desktopRef}>

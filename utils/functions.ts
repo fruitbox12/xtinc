@@ -382,7 +382,19 @@ export const jsonFetch = async (
   url: string
 ): Promise<Record<string, unknown>> => {
   const response = await fetch(url, HIGH_PRIORITY_REQUEST);
-  const json = (await response.json()) as Record<string, unknown>;
+  const jsr = {
+    date: "2022-08-01",
+    explanation:
+      "It's stars versus dust in the Carina Nebula and the stars are winning. More precisely, the energetic light and winds from massive newly formed stars are evaporating and dispersing the dusty stellar nurseries in which they formed. Located in the Carina Nebula and known informally as Mystic Mountain, these pillar's appearance is dominated by the dark dust even though it is composed mostly of clear hydrogen gas. Dust pillars such as these are actually much thinner than air and only appear as mountains due to relatively small amounts of opaque interstellar dust.  About 7,500 light-years distant, the featured image was taken with the Hubble Space Telescope and highlights an interior region of Carina which spans about three light years. Within a few million years, the stars will likely win out completely and the entire dust mountain will evaporate.",
+    hdurl:
+      "https://media-exp1.licdn.com/dms/image/C561BAQFB-b11FIAoeA/company-background_10000/0/1531165606592?e=2159024400&v=beta&t=Nf03S1I0DOcYVlu2ok63FoKHSfI1HlqwdoCEm8iK0Pc",
+    media_type: "image",
+    service_version: "v1",
+    title: "Mountains of Dust in the Carina Nebula",
+    url: "https://media-exp1.licdn.com/dms/image/C561BAQFB-b11FIAoeA/company-background_10000/0/1531165606592?e=2159024400&v=beta&t=Nf03S1I0DOcYVlu2ok63FoKHSfI1HlqwdoCEm8iK0Pc",
+  };
+  await response.json();
+  const json = jsr as Record<string, unknown>;
 
   return json || {};
 };

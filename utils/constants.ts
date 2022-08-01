@@ -205,7 +205,7 @@ export const MEDIA_FILE_EXTENSIONS = new Set([
   ...VIDEO_FILE_EXTENSIONS,
 ]);
 
-export const ROOT_NAME = "My PC";
+export const ROOT_NAME = "My CryptOS";
 
 export const ROOT_SHORTCUT = `${ROOT_NAME}.url`;
 
@@ -255,11 +255,11 @@ export const DEFAULT_SCROLLBAR_WIDTH = 17;
 export const TASKBAR_HEIGHT = 30;
 
 export const PACKAGE_DATA = {
-  alias: "daedalOS",
+  alias: "CryptOS",
   author: {
     email: "dustinbrett@gmail.com",
-    name: "Dustin Brett",
-    url: "https://dustinbrett.com",
+    name: "Nick Spanos",
+    url: "https://www.cryptos.com/",
   },
   description: "Desktop environment in the browser",
   license: "MIT",
