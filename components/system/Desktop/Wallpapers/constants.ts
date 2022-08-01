@@ -33,14 +33,6 @@ export const WALLPAPER_WORKERS: Record<string, (info?: string) => Worker> = {
       ),
       { name: "Wallpaper (Hexells)" }
     ),
-  VANTA: (info?: string): Worker =>
-    new Worker(
-      new URL(
-        "components/system/Desktop/Wallpapers/vantaWaves/wallpaper.worker",
-        import.meta.url
-      ),
-      { name: `Wallpaper (Vanta Waves)${info ? ` [${info}]` : ""}` }
-    ),
 };
 
 export const BASE_CANVAS_SELECTOR = ":scope > canvas";
