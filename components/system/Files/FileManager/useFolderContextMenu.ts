@@ -144,11 +144,11 @@ const useFolderContextMenu = (
                   toggle: wallpaperImage === "HEXELLS",
                 },
                 {
-                  action: () => setWallpaper("VANTA"),
+                  action: () => setWallpaper("APOD"),
                   label: `Vanta Waves${
-                    wallpaperImage === "VANTA WIREFRAME" ? " (Wireframe)" : ""
+                    wallpaperImage === "APOD" ? " (Wireframe)" : ""
                   }`,
-                  toggle: wallpaperImage.startsWith("VANTA"),
+                  toggle: wallpaperImage.startsWith("APOD"),
                 },
               ],
             },

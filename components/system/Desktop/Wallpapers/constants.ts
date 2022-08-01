@@ -17,14 +17,6 @@ export const BRIGHT_WALLPAPERS: Record<string, `${number}%`> = {
 };
 
 export const WALLPAPER_WORKERS: Record<string, (info?: string) => Worker> = {
-  ADAP: (info?: string): Worker =>
-    new Worker(
-      new URL(
-        "components/system/Desktop/Wallpapers/vantaWaves/wallpaper.worker",
-        import.meta.url
-      ),
-      { name: `Wallpaper (Vanta Waves)${info ? ` [${info}]` : ""}` }
-    ),
   COASTAL_LANDSCAPE: (): Worker =>
     new Worker(
       new URL(
@@ -40,6 +32,14 @@ export const WALLPAPER_WORKERS: Record<string, (info?: string) => Worker> = {
         import.meta.url
       ),
       { name: "Wallpaper (Hexells)" }
+    ),
+  VANTA: (info?: string): Worker =>
+    new Worker(
+      new URL(
+        "components/system/Desktop/Wallpapers/vantaWaves/wallpaper.worker",
+        import.meta.url
+      ),
+      { name: `Wallpaper (Vanta Waves)${info ? ` [${info}]` : ""}` }
     ),
 };
 

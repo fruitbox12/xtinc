@@ -6,7 +6,6 @@ import {
 } from "components/system/Desktop/Wallpapers/constants";
 import hexells from "components/system/Desktop/Wallpapers/hexells";
 import coastalLandscape from "components/system/Desktop/Wallpapers/ShaderToy/CoastalLandscape";
-import { config } from "components/system/Desktop/Wallpapers/vantaWaves/config";
 import { useFileSystem } from "contexts/fileSystem";
 import { useSession } from "contexts/session";
 import useWorker from "hooks/useWorker";
@@ -31,11 +30,11 @@ const useWallpaper = (
   const { sessionLoaded, setWallpaper, wallpaperImage, wallpaperFit } =
     useSession();
   const [wallpaperName] = wallpaperImage.split(" ");
-  const vantaWireframe = wallpaperImage === "APOD Wireframe";
+  const vantaWireframe = wallpaperImage === "APOD";
   const wallpaperWorker = useWorker<void>(
     WALLPAPER_WORKERS[wallpaperName],
     undefined,
-    vantaWireframe ? "Wireframe" : ""
+    vantaWireframe ? "Wireframe" : "APOD"
   );
   const resizeListener = useCallback(() => {
     if (!desktopRef.current) return;
@@ -54,9 +53,7 @@ const useWallpaper = (
   }, [desktopRef, wallpaperWorker]);
   const loadWallpaper = useCallback(() => {
     if (desktopRef.current) {
-      const vantaConfig = { ...config };
-
-      vantaConfig.material.options.wireframe = vantaWireframe;
+      const vantaConfig = "";
 
       desktopRef.current.setAttribute("style", "");
       desktopRef.current.querySelector(BASE_CANVAS_SELECTOR)?.remove();
@@ -79,10 +76,7 @@ const useWallpaper = (
         window.removeEventListener("resize", resizeListener);
         window.addEventListener("resize", resizeListener, { passive: true });
       } else if (wallpaperName === "VANTA") {
-        import("components/system/Desktop/Wallpapers/vantaWaves").then(
-          ({ default: vantaWaves }) =>
-            vantaWaves(vantaConfig)(desktopRef.current)
-        );
+        setWallpaper("APOD");
       } else if (wallpaperName === "HEXELLS") {
         hexells(desktopRef.current);
       } else if (wallpaperName === "COASTAL_LANDSCAPE") {
@@ -104,7 +98,6 @@ const useWallpaper = (
     desktopRef,
     resizeListener,
     setWallpaper,
-    vantaWireframe,
     wallpaperName,
     wallpaperWorker,
   ]);
@@ -206,7 +199,7 @@ const useWallpaper = (
     if (sessionLoaded) {
       if (wallpaperName) {
         if (WALLPAPER_WORKER_NAMES.includes(wallpaperName)) {
-          loadWallpaper();
+          loadFileWallpaper();
         } else {
           loadFileWallpaper().catch(loadWallpaper);
         }
