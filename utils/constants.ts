@@ -255,13 +255,13 @@ export const DEFAULT_SCROLLBAR_WIDTH = 17;
 export const TASKBAR_HEIGHT = 30;
 
 export const PACKAGE_DATA = {
-  alias: "CryptOS",
+  alias: "Extinct Labs",
   author: {
     email: "dustinbrett@gmail.com",
-    name: "Nick Spanos",
+    name: "",
     url: "https://www.cryptos.com/",
   },
-  description: "Desktop environment in the browser",
+  description: "Extinct Labs",
   license: "MIT",
   version: "2.0.0",
 };

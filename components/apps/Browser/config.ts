@@ -24,8 +24,8 @@ export const bookmarks: Bookmark[] = [
   },
   {
     icon: FAVICON_BASE_PATH,
-    name: "CryptOS",
-    url: "https://www.cryptos.com/",
+    name: "Extinct Labs",
+    url: "https://www.extinctlabs.com/",
   },
   {
     icon: "/System/Icons/Favicons/win96.webp",
@@ -60,4 +60,4 @@ export const config = {
     "allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts",
 };
 
-export const HOME_PAGE = "https://www.google.com/webhp?igu=1";
+export const HOME_PAGE = "https://www.extinctlabs.com/";
