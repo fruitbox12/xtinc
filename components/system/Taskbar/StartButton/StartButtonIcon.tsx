@@ -2,9 +2,9 @@ const StartButtonIcon: FC = () => (
   <div>
     <img
       alt="BigCo Inc. logo"
-      height={20}
+      height={40}
       src="https://freepngimg.com/thumb/biohazard_symbol/1-2-biohazard-symbol-png-image.png"
-      width={20}
+      width={40}
     />
   </div>
 );
